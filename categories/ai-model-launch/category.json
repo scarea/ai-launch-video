@@ -1,0 +1,15 @@
+{
+  "id": "ai-model-launch",
+  "name": "AI 模型发布",
+  "targetSeconds": [300, 420],
+  "chapters": [
+    { "id": "release", "title": "发布与开放入口", "required": true, "slots": ["公告截图", "模型文档截图"] },
+    { "id": "headline-evals", "title": "核心评测", "required": true, "slots": ["官方评测图"] },
+    { "id": "compare", "title": "与竞品对比", "required": false, "slots": ["对比评测图"] },
+    { "id": "capabilities", "title": "能力与样例", "required": false, "slots": ["官方样例图/视频"] },
+    { "id": "safety", "title": "安全与对齐", "required": false, "slots": ["系统卡图表"] },
+    { "id": "pricing", "title": "价格与上下文", "required": true, "slots": ["价格表（自绘）", "文档截图"] }
+  ],
+  "sources": ["发布公告", "模型文档", "价格页", "系统卡"],
+  "visualKinds": ["image", "points", "quote", "stat", "bars", "table"]
+}

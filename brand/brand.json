@@ -1,0 +1,27 @@
+{
+  "name": "首发拆解",
+  "tagline": "AI 新模型速读",
+  "mascotName": "主播",
+  "ink": "#14192B",
+  "primary": "#3B5BDB",
+  "avatar": {
+    "type": "png",
+    "poses": {
+      "idle": "brand/host-idle.png",
+      "idleTalk": "brand/host-idleTalk.png",
+      "point": "brand/host-point.png",
+      "pointTalk": "brand/host-pointTalk.png",
+      "think": "brand/host-think.png"
+    }
+  },
+  "voice": {
+    "provider": "minimax",
+    "voice": "Chinese (Mandarin)_Warm_Bestie",
+    "speed": 1.1
+  },
+  "voiceFallback": {
+    "provider": "edge",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "+12%"
+  }
+}

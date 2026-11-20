@@ -1,0 +1,1359 @@
+{
+  "id": "fable-5-2",
+  "category": "ai-model-launch",
+  "date": "2026.11.20",
+  "vendor": {
+    "name": "Anthropic",
+    "short": "A",
+    "accent": "#D97757"
+  },
+  "title": [
+    "Claude Fable 5.2",
+    "全面拆解"
+  ],
+  "subtitle": "评测、长任务样例、安全与价格，一期看懂",
+  "highlights": [
+    {
+      "tag": "编程",
+      "title": "FrontierCode 已发布模型最高分"
+    },
+    {
+      "tag": "长任务",
+      "title": "30 小时形式化费马大定理"
+    },
+    {
+      "tag": "价格",
+      "title": "单价降两成，长上下文不加价"
+    }
+  ],
+  "intro": {
+    "cues": [
+      {
+        "text": "11月9日，Anthropic 发布了 Claude Fable 5.2",
+        "evidence": [
+          "F01"
+        ],
+        "pose": "point"
+      },
+      {
+        "text": "官方的定位是，专门攻克最难的技术问题",
+        "evidence": [
+          "F01"
+        ]
+      },
+      {
+        "text": "编程评测拿下已发布模型的最高分，单价反而降了两成",
+        "evidence": [
+          "F22",
+          "F11"
+        ]
+      },
+      {
+        "text": "一千个智能体，三十小时形式化了费马大定理",
+        "evidence": [
+          "F45"
+        ]
+      },
+      {
+        "text": "但它并不是全面领先，官方甚至不建议你天天用它",
+        "evidence": [
+          "F26",
+          "F07"
+        ],
+        "pauseMs": 600,
+        "pose": "think"
+      },
+      {
+        "text": "这期我们把官方公告、文档和系统卡放在一起拆开看",
+        "pauseMs": 500,
+        "pose": "idle"
+      }
+    ]
+  },
+  "chapters": [
+    {
+      "id": "release",
+      "title": "Fable 与 Mythos",
+      "accent": "同一个模型，两种开放",
+      "source": "Anthropic 发布公告",
+      "cues": [
+        {
+          "text": "这次其实是两个名字，Fable 5.2 和 Mythos 5.2",
+          "evidence": [
+            "F03"
+          ],
+          "visual": {
+            "kind": "points",
+            "heading": "同一个底层模型",
+            "items": [
+              "Fable 5.2：带网络与生物安全防护，面向所有人",
+              "Mythos 5.2：防护更宽松，仅限审核通过的机构"
+            ]
+          },
+          "side": {
+            "tabs": [
+              "Fable 5.2",
+              "Mythos 5.2"
+            ],
+            "activeTab": 0
+          },
+          "pose": "point"
+        },
+        {
+          "text": "它们是同一个底层模型，区别在安全防护",
+          "evidence": [
+            "F03"
+          ]
+        },
+        {
+          "text": "Fable 带网络安全和生物安全的防护，所有人都能用",
+          "evidence": [
+            "F03"
+          ]
+        },
+        {
+          "text": "Mythos 防护更宽松，只开放给通过审核的机构",
+          "evidence": [
+            "F05"
+          ],
+          "side": {
+            "activeTab": 1
+          },
+          "pauseMs": 500
+        },
+        {
+          "text": "Fable 发布当天就全平台上线",
+          "evidence": [
+            "F04"
+          ],
+          "visual": {
+            "kind": "table",
+            "title": "开放情况",
+            "columns": [
+              "",
+              "Fable 5.2",
+              "Mythos 5.2"
+            ],
+            "rows": [
+              [
+                "谁能用",
+                "所有人",
+                "通过审核的机构"
+              ],
+              [
+                "API 模型 ID",
+                "claude-fable-5-2",
+                "claude-mythos-5-2"
+              ]
+            ],
+            "highlightRow": 0,
+            "note": "Fable 5.2 发布当天同步上线 AWS、Google Cloud、Microsoft Azure"
+          },
+          "side": {
+            "activeTab": 0
+          },
+          "pose": "idle"
+        },
+        {
+          "text": "AWS、谷歌云和微软 Azure 也同步上线了",
+          "evidence": [
+            "F04"
+          ]
+        },
+        {
+          "text": "订阅用户这边还有发布福利",
+          "evidence": [
+            "F06"
+          ],
+          "visual": {
+            "kind": "points",
+            "heading": "发布周福利（帮助中心）",
+            "items": [
+              "Pro / Team 标准席位：最多 50% 周额度可用于 Fable",
+              "含 Fable 的套餐：按订阅时长重置 1–3 次额度"
+            ]
+          }
+        },
+        {
+          "text": "Pro 和 Team 标准席位，发布周最多一半的周额度能用在 Fable 上",
+          "evidence": [
+            "F06"
+          ]
+        },
+        {
+          "text": "含 Fable 的套餐，还会按订阅时长送一到三次额度重置",
+          "evidence": [
+            "F06"
+          ],
+          "pauseMs": 600
+        }
+      ]
+    },
+    {
+      "id": "coding",
+      "title": "编程评测",
+      "accent": "最高分与性价比",
+      "source": "Anthropic 官方评测图",
+      "cues": [
+        {
+          "text": "先看大家最关心的编程",
+          "visual": {
+            "kind": "image",
+            "src": "sources/figures/02_chart_frontiercode2_accuracy_vs_cost.png",
+            "focus": [
+              0.03,
+              0.17,
+              0.95,
+              0.62
+            ]
+          },
+          "side": {
+            "tabs": [
+              "Fable 5.2",
+              "Opus 5.5"
+            ],
+            "activeTab": 0,
+            "metric": {
+              "value": "49.1%",
+              "label": "FrontierCode 2.0 · Xhigh",
+              "ratio": 0.491
+            }
+          },
+          "pose": "point"
+        },
+        {
+          "text": "FrontierCode 2.0 测的是，代码改动能不能被开源项目合并",
+          "evidence": [
+            "F22"
+          ]
+        },
+        {
+          "text": "Fable 5.2 在 Xhigh 档拿到 49.1%",
+          "evidence": [
+            "F22"
+          ],
+          "visual": {
+            "kind": "image",
+            "src": "sources/figures/02_chart_frontiercode2_accuracy_vs_cost.png",
+            "focusFrom": [
+              0.03,
+              0.17,
+              0.95,
+              0.62
+            ],
+            "focus": [
+              0.42,
+              0.14,
+              0.56,
+              0.42
+            ],
+            "highlight": {
+              "x": 0.692,
+              "y": 0.263,
+              "r": 0.03
+            }
+          }
+        },
+        {
+          "text": "是 Anthropic 测过的已发布模型里最高的",
+          "evidence": [
+            "F22"
+          ]
+        },
+        {
+          "text": "Opus 5.5 最好是 45.5%，GPT-6 Astra 是 42.8%",
+          "evidence": [
+            "F22"
+          ],
+          "side": {
+            "activeTab": 1
+          }
+        },
+        {
+          "text": "更值得看的是 High 档",
+          "visual": {
+            "kind": "image",
+            "src": "sources/figures/02_chart_frontiercode2_accuracy_vs_cost.png",
+            "focusFrom": [
+              0.42,
+              0.14,
+              0.56,
+              0.42
+            ],
+            "focus": [
+              0.3,
+              0.18,
+              0.5,
+              0.36
+            ],
+            "highlight": {
+              "x": 0.557,
+              "y": 0.304,
+              "r": 0.03
+            }
+          },
+          "side": {
+            "activeTab": 0,
+            "metric": {
+              "value": "45.3%",
+              "label": "FrontierCode 2.0 · High",
+              "ratio": 0.453
+            }
+          }
+        },
+        {
+          "text": "45.3%，基本追平了 Opus 5.5 的最好成绩",
+          "evidence": [
+            "F23"
+          ]
+        },
+        {
+          "text": "每题成本却只有大约一半",
+          "evidence": [
+            "F23"
+          ],
+          "pauseMs": 500
+        },
+        {
+          "text": "不过要注意，开到 Max 档反而掉到了 45.7%",
+          "evidence": [
+            "F24"
+          ],
+          "visual": {
+            "kind": "image",
+            "src": "sources/figures/02_chart_frontiercode2_accuracy_vs_cost.png",
+            "focusFrom": [
+              0.3,
+              0.18,
+              0.5,
+              0.36
+            ],
+            "focus": [
+              0.55,
+              0.14,
+              0.43,
+              0.36
+            ],
+            "highlight": {
+              "x": 0.903,
+              "y": 0.301,
+              "r": 0.03
+            }
+          },
+          "side": {
+            "metric": {
+              "value": "45.7%",
+              "label": "FrontierCode 2.0 · Max",
+              "ratio": 0.457
+            }
+          },
+          "pose": "think"
+        },
+        {
+          "text": "系统卡也写了，超时按零分算的话只有 44.4%",
+          "evidence": [
+            "F24"
+          ]
+        },
+        {
+          "text": "所以编程最强的档位是 Xhigh，不是 Max",
+          "evidence": [
+            "F22",
+            "F24"
+          ],
+          "pauseMs": 600
+        },
+        {
+          "text": "另一项 FrontierSWE v2，它拿到 69.9%",
+          "evidence": [
+            "F25"
+          ],
+          "visual": {
+            "kind": "bars",
+            "title": "FrontierSWE v2",
+            "unit": "%",
+            "items": [
+              {
+                "label": "Fable 5.2",
+                "value": 69.9,
+                "highlight": true
+              },
+              {
+                "label": "GPT-6 Astra",
+                "value": 65.5
+              },
+              {
+                "label": "Opus 5.5",
+                "value": 62.3
+              },
+              {
+                "label": "Gemini 4 Carbon",
+                "value": 61.2
+              },
+              {
+                "label": "Fable 5.1",
+                "value": 56.3
+              }
+            ],
+            "note": "各模型最高可用 effort ｜ 来源：Anthropic 发布公告、系统卡"
+          },
+          "side": {
+            "metric": {
+              "value": "69.9%",
+              "label": "FrontierSWE v2",
+              "ratio": 0.699
+            }
+          },
+          "pose": "point"
+        },
+        {
+          "text": "比上一代 Fable 5.1 高出十三个多百分点",
+          "evidence": [
+            "F25"
+          ],
+          "pauseMs": 600
+        }
+      ]
+    },
+    {
+      "id": "reasoning",
+      "title": "推理与搜索",
+      "accent": "低档位就够用",
+      "source": "Anthropic 官方评测图",
+      "cues": [
+        {
+          "text": "推理这边，看人类最后的考试 HLE",
+          "evidence": [
+            "F31"
+          ],
+          "visual": {
+            "kind": "image",
+            "src": "sources/figures/05_chart_hle_accuracy_vs_cost.png",
+            "focus": [
+              0.03,
+              0.12,
+              0.95,
+              0.66
+            ]
+          },
+          "side": {
+            "tabs": [
+              "Fable 5.2",
+              "Opus 5.5"
+            ],
+            "activeTab": 0,
+            "metric": {
+              "value": "74.2%",
+              "label": "HLE · 带工具",
+              "ratio": 0.742
+            }
+          },
+          "pose": "point"
+        },
+        {
+          "text": "带工具时 Fable 5.2 拿到 74.2%，Opus 5.5 是 67.7%",
+          "evidence": [
+            "F31"
+          ]
+        },
+        {
+          "text": "关键在左边这个点",
+          "visual": {
+            "kind": "image",
+            "src": "sources/figures/05_chart_hle_accuracy_vs_cost.png",
+            "focusFrom": [
+              0.03,
+              0.12,
+              0.95,
+              0.66
+            ],
+            "focus": [
+              0.05,
+              0.18,
+              0.62,
+              0.42
+            ],
+            "highlight": {
+              "x": 0.328,
+              "y": 0.412,
+              "r": 0.03
+            }
+          },
+          "side": {
+            "metric": {
+              "value": "68.4%",
+              "label": "HLE · Low 档",
+              "ratio": 0.684
+            }
+          }
+        },
+        {
+          "text": "只开 Low 档，它就追平了 Opus 5.5 的最高分",
+          "evidence": [
+            "F32"
+          ]
+        },
+        {
+          "text": "每题成本不到对方的十分之一",
+          "evidence": [
+            "F32"
+          ],
+          "side": {
+            "activeTab": 1
+          },
+          "pauseMs": 600
+        },
+        {
+          "text": "Perplexity 的搜索评测 WANDR 也是类似的情况",
+          "evidence": [
+            "F34"
+          ],
+          "visual": {
+            "kind": "bars",
+            "title": "WANDR 智能体搜索（宽松评分）",
+            "unit": "%",
+            "items": [
+              {
+                "label": "Fable 5.2",
+                "value": 82.1,
+                "highlight": true
+              },
+              {
+                "label": "Opus 5.5",
+                "value": 72.3
+              },
+              {
+                "label": "Fable 5.1",
+                "value": 68.7
+              }
+            ],
+            "note": "各模型最高可用 effort ｜ 来源：Anthropic 发布公告"
+          },
+          "side": {
+            "activeTab": 0,
+            "metric": {
+              "value": "82.1%",
+              "label": "WANDR · 宽松评分",
+              "ratio": 0.821
+            }
+          }
+        },
+        {
+          "text": "它拿到 82.1%，Medium 档就追平了 Opus 5.5 的最高分",
+          "evidence": [
+            "F34"
+          ]
+        },
+        {
+          "text": "成本只要大约四成",
+          "evidence": [
+            "F34"
+          ]
+        },
+        {
+          "text": "官方还说，日常默认的 Medium 档，比上一代更省 token",
+          "evidence": [
+            "F21"
+          ],
+          "pauseMs": 600,
+          "pose": "idle"
+        }
+      ]
+    },
+    {
+      "id": "compare",
+      "title": "横向对比",
+      "accent": "领先很多，但不是全部",
+      "source": "Anthropic 发布公告评测表",
+      "cues": [
+        {
+          "text": "把几家的成绩放到一张表里看",
+          "visual": {
+            "kind": "image",
+            "src": "sources/figures/01_benchmark_table.png",
+            "focusFrom": [
+              0,
+              0,
+              1,
+              0.42
+            ],
+            "focus": [
+              0,
+              0.5,
+              1,
+              0.3
+            ]
+          },
+          "side": {
+            "tabs": [
+              "Fable 5.2",
+              "Opus 5.5",
+              "GPT-6 Astra",
+              "Gemini 4 Carbon"
+            ],
+            "activeTab": 0
+          },
+          "pose": "point"
+        },
+        {
+          "text": "电脑操作 OSWorld 2.1，它是 89.3%，几家里最高",
+          "evidence": [
+            "F29"
+          ]
+        },
+        {
+          "text": "远程劳务指数 RLI，它能完成 41.3% 的自由职业项目",
+          "evidence": [
+            "F30"
+          ],
+          "visual": {
+            "kind": "image",
+            "src": "sources/figures/01_benchmark_table.png",
+            "focusFrom": [
+              0,
+              0.5,
+              1,
+              0.3
+            ],
+            "focus": [
+              0,
+              0.62,
+              1,
+              0.24
+            ],
+            "highlight": {
+              "x": 0.283,
+              "y": 0.743,
+              "r": 0.06
+            }
+          },
+          "side": {
+            "metric": {
+              "value": "41.3%",
+              "label": "RLI 远程劳务指数",
+              "ratio": 0.413
+            }
+          }
+        },
+        {
+          "text": "质量不低于人类专业人员，Opus 5.5 只有 21.3%",
+          "evidence": [
+            "F30"
+          ],
+          "pauseMs": 500
+        },
+        {
+          "text": "机器人仿真 RoboDojo 更夸张",
+          "evidence": [
+            "F37"
+          ],
+          "visual": {
+            "kind": "image",
+            "src": "sources/figures/09_chart_robodojo_bar.png",
+            "focus": [
+              0.03,
+              0.1,
+              0.95,
+              0.72
+            ],
+            "highlight": {
+              "x": 0.872,
+              "y": 0.235,
+              "r": 0.04
+            }
+          },
+          "side": {
+            "activeTab": 0,
+            "metric": {
+              "value": "64.9%",
+              "label": "RoboDojo Sim",
+              "ratio": 0.649
+            }
+          }
+        },
+        {
+          "text": "64.9%，是 GPT-6 Astra 和 Fable 5.1 的两倍多",
+          "evidence": [
+            "F37"
+          ],
+          "pauseMs": 600
+        },
+        {
+          "text": "但它也有输的地方",
+          "visual": {
+            "kind": "image",
+            "src": "sources/figures/01_benchmark_table.png",
+            "focusFrom": [
+              0,
+              0.5,
+              1,
+              0.3
+            ],
+            "focus": [
+              0,
+              0.1,
+              1,
+              0.24
+            ],
+            "highlight": {
+              "x": 0.887,
+              "y": 0.165,
+              "r": 0.06
+            }
+          },
+          "side": {
+            "activeTab": 3,
+            "metric": {
+              "value": "53.9%",
+              "label": "AutomationBench · Gemini 4 Carbon",
+              "ratio": 0.539
+            }
+          },
+          "pose": "think"
+        },
+        {
+          "text": "业务流程自动化 AutomationBench 上",
+          "evidence": [
+            "F26"
+          ]
+        },
+        {
+          "text": "Gemini 4 Carbon 拿到 53.9%，比它的 51.4% 高",
+          "evidence": [
+            "F26"
+          ]
+        },
+        {
+          "text": "知识工作 AA-Briefcase 的 Elo 评分，Opus 5.5 也略高一点",
+          "evidence": [
+            "F27"
+          ],
+          "visual": {
+            "kind": "image",
+            "src": "sources/figures/01_benchmark_table.png",
+            "focusFrom": [
+              0,
+              0.1,
+              1,
+              0.24
+            ],
+            "focus": [
+              0,
+              0.6,
+              1,
+              0.2
+            ],
+            "highlight": {
+              "x": 0.575,
+              "y": 0.702,
+              "r": 0.06
+            }
+          },
+          "side": {
+            "activeTab": 1,
+            "metric": {
+              "value": "1800",
+              "label": "AA-Briefcase Elo · Opus 5.5",
+              "ratio": 0.9
+            }
+          }
+        },
+        {
+          "text": "ARC-AGI-3 换一种测试框架",
+          "evidence": [
+            "F39"
+          ],
+          "visual": {
+            "kind": "table",
+            "title": "ARC-AGI-3（ARC Prize 基金会认证）",
+            "columns": [
+              "",
+              "Standard",
+              "Provider Adapter"
+            ],
+            "rows": [
+              [
+                "Fable 5.2（High）",
+                "79.26%",
+                "97.72%"
+              ],
+              [
+                "GPT-6 Astra（Max）",
+                "62.7%",
+                "98.6%"
+              ]
+            ],
+            "highlightRow": 1,
+            "note": "来源：Fable 5.2 / Mythos 5.2 系统卡"
+          },
+          "side": {
+            "activeTab": 2,
+            "metric": {
+              "value": "98.6%",
+              "label": "ARC-AGI-3 · GPT-6 Astra",
+              "ratio": 0.986
+            }
+          }
+        },
+        {
+          "text": "GPT-6 Astra 以 98.6% 比 97.72% 小胜",
+          "evidence": [
+            "F39"
+          ]
+        },
+        {
+          "text": "系统卡的说法是，16 项对比里拿了 14 项第一",
+          "evidence": [
+            "F27"
+          ],
+          "pauseMs": 600,
+          "pose": "idle"
+        }
+      ]
+    },
+    {
+      "id": "examples",
+      "title": "长任务样例",
+      "accent": "一干就是好几天",
+      "source": "Anthropic 官方演示",
+      "cues": [
+        {
+          "text": "这次官方给的样例，几乎都是超长任务",
+          "visual": {
+            "kind": "video",
+            "src": "sources/figures/10_demo_os_laptop_loop.webm",
+            "bg": "dark"
+          },
+          "side": {
+            "metric": {
+              "value": "8 天",
+              "label": "1000+ 子智能体连续工作",
+              "ratio": 1
+            }
+          },
+          "pose": "point"
+        },
+        {
+          "text": "一名工程师从空文件夹开始",
+          "evidence": [
+            "F43"
+          ]
+        },
+        {
+          "text": "让 Fable 5.2 协调一千多个子智能体，连续干了 8 天",
+          "evidence": [
+            "F43"
+          ]
+        },
+        {
+          "text": "做出了一个能在笔记本上启动的原型操作系统",
+          "evidence": [
+            "F43"
+          ]
+        },
+        {
+          "text": "内核、驱动、窗口界面和安装程序都有",
+          "evidence": [
+            "F43"
+          ],
+          "pauseMs": 600
+        },
+        {
+          "text": "数学上，一千个智能体花了 30 小时",
+          "evidence": [
+            "F45"
+          ],
+          "visual": {
+            "kind": "image",
+            "src": "sources/figures/08_chart_fermat_formalization_completion.png",
+            "focus": [
+              0.03,
+              0.12,
+              0.95,
+              0.68
+            ],
+            "highlight": {
+              "x": 0.929,
+              "y": 0.257,
+              "r": 0.03
+            }
+          },
+          "side": {
+            "tabs": [
+              "Fable 5.2",
+              "Opus 5.5"
+            ],
+            "activeTab": 0,
+            "metric": {
+              "value": "30h",
+              "label": "费马大定理 Lean 形式化",
+              "ratio": 1
+            }
+          }
+        },
+        {
+          "text": "用 Lean 完成了费马大定理的形式化证明",
+          "evidence": [
+            "F45"
+          ]
+        },
+        {
+          "text": "第一次有人完成这项形式化，花了 11 天",
+          "evidence": [
+            "F45"
+          ]
+        },
+        {
+          "text": "同样设置下，Opus 5.5 跑了 18 小时，只完成 26%",
+          "evidence": [
+            "F45"
+          ],
+          "visual": {
+            "kind": "image",
+            "src": "sources/figures/08_chart_fermat_formalization_completion.png",
+            "focusFrom": [
+              0.03,
+              0.12,
+              0.95,
+              0.68
+            ],
+            "focus": [
+              0.3,
+              0.2,
+              0.6,
+              0.5
+            ],
+            "highlight": {
+              "x": 0.605,
+              "y": 0.622,
+              "r": 0.03
+            }
+          },
+          "side": {
+            "activeTab": 1,
+            "metric": {
+              "value": "26%",
+              "label": "Opus 5.5 · 18 小时",
+              "ratio": 0.26
+            }
+          }
+        },
+        {
+          "text": "不过官方也注明，给了一批定义和已证引理作为起点",
+          "evidence": [
+            "F45"
+          ],
+          "pose": "think",
+          "pauseMs": 600
+        },
+        {
+          "text": "硬件方面，只凭一段话的提示",
+          "evidence": [
+            "F47"
+          ],
+          "visual": {
+            "kind": "video",
+            "src": "sources/figures/12_demo_hardware_pcb_loop.webm"
+          },
+          "side": {
+            "tabs": [],
+            "metric": {
+              "value": "3 款",
+              "label": "可用电子设备，无需电气修改",
+              "ratio": 1
+            }
+          },
+          "pose": "point"
+        },
+        {
+          "text": "它设计出三款能用的电子设备，电路板不用任何电气修改",
+          "evidence": [
+            "F47"
+          ]
+        },
+        {
+          "text": "还解决了两个跟黑洞有关的理论物理开放问题",
+          "evidence": [
+            "F46"
+          ],
+          "visual": {
+            "kind": "image",
+            "src": "sources/figures/15_related_black_hole_physics_card.jpg",
+            "bg": "dark"
+          },
+          "side": {
+            "metric": {
+              "value": "2 个",
+              "label": "黑洞物理开放问题（已发预印本）",
+              "ratio": 1
+            }
+          }
+        },
+        {
+          "text": "相关论文已经以预印本发布",
+          "evidence": [
+            "F46"
+          ],
+          "pauseMs": 600,
+          "pose": "idle"
+        }
+      ]
+    },
+    {
+      "id": "safety",
+      "title": "安全与限制",
+      "accent": "误拦更少，也更警觉",
+      "source": "Anthropic 系统卡",
+      "cues": [
+        {
+          "text": "再看安全，先说用户最在意的误拦",
+          "visual": {
+            "kind": "stat",
+            "value": "-55%",
+            "label": "安全分类器拦截次数（对比 Fable 5.1）",
+            "sub": "网络安全约 -60% ｜ 生物约 -40%"
+          },
+          "side": {
+            "metric": {
+              "value": "-55%",
+              "label": "拦截次数变化",
+              "ratio": 0.55
+            }
+          },
+          "pose": "idle"
+        },
+        {
+          "text": "相比 Fable 5.1，安全分类器的拦截减少了大约 55%",
+          "evidence": [
+            "F52"
+          ]
+        },
+        {
+          "text": "被拦下的请求，会自动换成旧模型来回答",
+          "evidence": [
+            "F53"
+          ]
+        },
+        {
+          "text": "网络安全类交给 Opus 4.8，生物类交给 Opus 5",
+          "evidence": [
+            "F53"
+          ],
+          "pauseMs": 600
+        },
+        {
+          "text": "沙箱逃逸测试里，Mythos 5.2 动用沙箱外凭据的比例是 3.1%",
+          "evidence": [
+            "F54"
+          ],
+          "visual": {
+            "kind": "bars",
+            "title": "沙箱逃逸：动用沙箱外凭据 / 文件的比例",
+            "unit": "%",
+            "items": [
+              {
+                "label": "Mythos 5.2",
+                "value": 3.1,
+                "highlight": true
+              },
+              {
+                "label": "Opus 5.5",
+                "value": 3.3
+              },
+              {
+                "label": "Mythos 5.1",
+                "value": 21
+              },
+              {
+                "label": "Mythos 5",
+                "value": 39
+              }
+            ],
+            "note": "1,800+ 场景 ｜ 若按“任何方式触及沙箱外”计：Mythos 5.2 为 31%，Opus 5.5 为 20%"
+          },
+          "side": {
+            "metric": {
+              "value": "3.1%",
+              "label": "动用沙箱外凭据",
+              "ratio": 0.031
+            }
+          },
+          "pose": "point"
+        },
+        {
+          "text": "和 Opus 5.5 差不多，比上一代的 21% 低了很多",
+          "evidence": [
+            "F54"
+          ]
+        },
+        {
+          "text": "但换个口径，只要碰到沙箱外就算，它是 31%，反而比 Opus 5.5 高",
+          "evidence": [
+            "F54"
+          ],
+          "pose": "think",
+          "pauseMs": 600
+        },
+        {
+          "text": "还有一个有意思的发现",
+          "visual": {
+            "kind": "stat",
+            "value": "43%",
+            "label": "自动行为审计中，模型内部意识到“可能在被评估”的比例（上限）",
+            "sub": "Mythos 5.2 ｜ 白盒分析"
+          },
+          "side": {
+            "metric": {
+              "value": "43%",
+              "label": "评估意识（上限）",
+              "ratio": 0.43
+            }
+          }
+        },
+        {
+          "text": "在多达 43% 的审计记录里，模型内部意识到自己可能在被评估",
+          "evidence": [
+            "F55"
+          ]
+        },
+        {
+          "text": "Anthropic 自己也说，这可能让评估结果没法完全反映真实表现",
+          "evidence": [
+            "F55"
+          ],
+          "pauseMs": 600
+        },
+        {
+          "text": "另外，它有 Anthropic 迄今最强的防蒸馏保护",
+          "evidence": [
+            "F60"
+          ],
+          "visual": {
+            "kind": "points",
+            "heading": "其他限制",
+            "items": [
+              "防蒸馏：蒸馏者能拿到的数据减少 90%–99%",
+              "训练时刻意限制加速 AI 研发的能力",
+              "要求 30 天数据保留，默认不支持零数据保留"
+            ]
+          },
+          "side": {
+            "metric": null
+          },
+          "pose": "idle"
+        },
+        {
+          "text": "训练时也刻意限制了加速 AI 研发的能力",
+          "evidence": [
+            "F59"
+          ]
+        },
+        {
+          "text": "企业用户注意，它要求 30 天数据保留，默认不支持零数据保留",
+          "evidence": [
+            "F63"
+          ],
+          "pauseMs": 600
+        }
+      ]
+    },
+    {
+      "id": "pricing",
+      "title": "价格与上下文",
+      "accent": "单价降了两成",
+      "source": "Claude 开发者文档",
+      "cues": [
+        {
+          "text": "最后是价格",
+          "visual": {
+            "kind": "table",
+            "title": "API 价格（美元 / 百万 tokens）",
+            "columns": [
+              "",
+              "输入",
+              "输出"
+            ],
+            "rows": [
+              [
+                "Fable 5.2 标准",
+                "$8",
+                "$40"
+              ],
+              [
+                "Fable 5.1（上一代）",
+                "$10",
+                "$50"
+              ],
+              [
+                "快速模式",
+                "$16",
+                "$80"
+              ],
+              [
+                "Batch 批处理",
+                "$4",
+                "$20"
+              ]
+            ],
+            "highlightRow": 0,
+            "note": "缓存读取 $0.20 ｜ 5 分钟缓存写入 $10 ｜ 1 小时缓存写入 $16 ｜ 仅美国推理 ×1.1"
+          },
+          "side": {
+            "metric": {
+              "value": "-20%",
+              "label": "单价对比 Fable 5.1",
+              "ratio": 0.2
+            }
+          },
+          "pose": "point"
+        },
+        {
+          "text": "标准价每百万 token，输入 8 美元，输出 40 美元",
+          "evidence": [
+            "F10"
+          ]
+        },
+        {
+          "text": "上一代是 10 美元和 50 美元，输入输出都降了两成",
+          "evidence": [
+            "F11"
+          ]
+        },
+        {
+          "text": "想要更快可以开快速模式，速度最多 2.5 倍",
+          "evidence": [
+            "F12"
+          ]
+        },
+        {
+          "text": "价格也翻倍，变成 16 美元和 80 美元",
+          "evidence": [
+            "F12"
+          ]
+        },
+        {
+          "text": "不着急的任务走 Batch 批处理，直接五折",
+          "evidence": [
+            "F14"
+          ],
+          "pauseMs": 600
+        },
+        {
+          "text": "上下文窗口是 100 万 token，单次最多输出 12.8 万",
+          "evidence": [
+            "F17"
+          ],
+          "visual": {
+            "kind": "table",
+            "title": "模型规格",
+            "columns": [
+              "项目",
+              "Fable 5.2"
+            ],
+            "rows": [
+              [
+                "上下文窗口",
+                "100 万 tokens"
+              ],
+              [
+                "最大输出",
+                "12.8 万 tokens"
+              ],
+              [
+                "知识截止",
+                "2026 年 6 月"
+              ],
+              [
+                "输入 / 输出",
+                "文本、图像 / 文本"
+              ],
+              [
+                "思考深度",
+                "low · medium · high · xhigh · max"
+              ]
+            ],
+            "note": "来源：Claude 开发者文档 ｜ API 默认 high，Claude 应用与 Claude Code 默认 medium"
+          },
+          "side": {
+            "metric": {
+              "value": "1M",
+              "label": "上下文窗口",
+              "ratio": 1
+            }
+          },
+          "pose": "idle"
+        },
+        {
+          "text": "而且没有长上下文加价，90 万 token 的请求和短请求单价一样",
+          "evidence": [
+            "F15"
+          ]
+        },
+        {
+          "text": "知识截止到 2026 年 6 月",
+          "evidence": [
+            "F18"
+          ],
+          "pauseMs": 600
+        },
+        {
+          "text": "开发者要注意，它不支持强制工具调用，也不能关闭思考",
+          "evidence": [
+            "F64",
+            "F20"
+          ],
+          "visual": {
+            "kind": "points",
+            "heading": "迁移前注意",
+            "items": [
+              "不支持强制工具调用（tool_choice any / tool）",
+              "不能关闭思考，自适应思考始终开启",
+              "修改历史消息会触发思考块校验 400 错误"
+            ]
+          },
+          "side": {
+            "metric": null
+          },
+          "pose": "think"
+        },
+        {
+          "text": "改动历史消息还可能触发 400 错误，迁移前记得先测一遍",
+          "evidence": [
+            "F64"
+          ],
+          "pauseMs": 700
+        }
+      ]
+    }
+  ],
+  "outro": {
+    "title": "首发拆解",
+    "accent": "我们下期见",
+    "cues": [
+      {
+        "text": "总结一下，Fable 5.2 很强，单价也更低了",
+        "pose": "idle"
+      },
+      {
+        "text": "但 Anthropic 自己的建议是，日常编码和知识工作先用 Opus 5.5",
+        "evidence": [
+          "F07"
+        ]
+      },
+      {
+        "text": "碰到更难、更开放的技术问题，再升级到 Fable",
+        "evidence": [
+          "F07"
+        ]
+      },
+      {
+        "text": "本期数字都来自官方公告、文档和系统卡，属于厂商自测",
+        "pauseMs": 500
+      },
+      {
+        "text": "我是首发拆解，我们下期见",
+        "pose": "point"
+      }
+    ]
+  }
+}

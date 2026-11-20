@@ -1,0 +1,20 @@
+# 依赖与环境
+node_modules/
+.venv/
+.env*
+!.env.example
+
+# 生成物（可由流水线重新生成）
+public/ep/
+public/brand/
+out/
+tmp/
+samples/
+runs/*/audio/
+runs/*/timeline.json
+runs/*/subtitles.srt
+runs/_smoke/
+
+# 大文件与原始素材
+runs/*/sources/*.pdf
+brand/gen/

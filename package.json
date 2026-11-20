@@ -1,0 +1,32 @@
+{
+  "name": "ai-launch-video",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "首发拆解：AI 新模型发布讲解视频工作流（采集 → 稿件 → 配音 → Remotion 渲染）",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "tts": "node --env-file-if-exists=.env packages/core/tts.mjs",
+    "assemble": "node --env-file-if-exists=.env packages/core/assemble.mjs",
+    "studio": "remotion studio packages/templates/src/index.ts",
+    "stills": "node --env-file-if-exists=.env packages/core/render.mjs --stills",
+    "render": "node --env-file-if-exists=.env packages/core/render.mjs",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.545",
+    "@remotion/cli": "^4.0.545",
+    "@remotion/player": "^4.0.545",
+    "@remotion/renderer": "^4.0.545",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "remotion": "^4.0.545"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^5.9.3"
+  }
+}
