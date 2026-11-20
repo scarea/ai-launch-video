@@ -11,6 +11,8 @@ const id = process.argv.slice(2).find((a) => !a.startsWith("--"));
 const stillsOnly = process.argv.includes("--stills");
 const onlyFrames = process.argv.find((a) => a.startsWith("--frames="))?.slice(9);
 const timeline = await readJson("public/ep/timeline.json");
+if (!id) throw new Error("用法：npm run render -- <期id>");
+if (timeline.id !== id) throw new Error(`public/ep 里是「${timeline.id ?? "未知"}」的时间轴，不是 ${id}：先运行 npm run assemble -- ${id}`);
 const stamp = new Date().toISOString().replace(/[-:]/g, "").slice(0, 15);
 const outDir = path.resolve("out", `${id}-${stillsOnly ? "stills" : "render"}-${stamp}`);
 await fs.mkdir(outDir, { recursive: true });

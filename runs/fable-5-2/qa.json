@@ -1,0 +1,64 @@
+{
+  "id": "fable-5-2",
+  "at": "2026-11-20T07:31:21.372Z",
+  "checks": [
+    {
+      "name": "稿件格式与引用",
+      "status": "warn",
+      "detail": [
+        "chapters[3](compare).cues[9]「知识工作 AA-Briefc」：41 字，字幕超过一行（建议 ≤ 32）"
+      ]
+    },
+    {
+      "name": "事实覆盖",
+      "status": "ok",
+      "detail": [
+        "64 条事实，稿件引用 40 条；80/93 句带 evidence"
+      ]
+    },
+    {
+      "name": "编码",
+      "status": "ok",
+      "detail": [
+        "h264 1920×1080，音轨 有，376.3s"
+      ]
+    },
+    {
+      "name": "时长",
+      "status": "ok",
+      "detail": [
+        "6.3 分钟，类目建议 5–7 分钟"
+      ]
+    },
+    {
+      "name": "音量",
+      "status": "ok",
+      "detail": [
+        "平均 -19.3dB，峰值 -4.5dB（目标平均 -24～-14dB，峰值不削波）"
+      ]
+    },
+    {
+      "name": "字幕同步",
+      "status": "ok",
+      "detail": [
+        "匹配 93/93 句，声音相对字幕中位数 31ms，范围 -0～40ms"
+      ]
+    },
+    {
+      "name": "全片解码",
+      "status": "ok",
+      "detail": [
+        "无解码错误"
+      ]
+    },
+    {
+      "name": "人工项",
+      "status": "warn",
+      "detail": [
+        "完整试听（读音、英文名念法、语气）只能人工确认，报告不代表已试听",
+        "看 npm run stills 的检查帧：遮挡、高亮位置、表格可读性"
+      ]
+    }
+  ],
+  "video": "out/fable-5-2-render-20261120T071502/video.mp4"
+}

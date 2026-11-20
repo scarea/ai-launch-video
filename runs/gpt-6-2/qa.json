@@ -1,0 +1,58 @@
+{
+  "id": "gpt-6-2",
+  "at": "2026-11-20T08:00:43.330Z",
+  "checks": [
+    {
+      "name": "稿件格式与引用",
+      "status": "warn",
+      "detail": [
+        "chapters[1](headline-evals).cues[9]「Anthropic 自己在 」：35 字，超过 34 字字幕会挤（建议 12–32 字）",
+        "chapters[3](compare).cues[1]「编程的 FrontierCo」：36 字，超过 34 字字幕会挤（建议 12–32 字）"
+      ]
+    },
+    {
+      "name": "事实覆盖",
+      "status": "ok",
+      "detail": [
+        "56 条事实，稿件引用 48 条；81/95 句带 evidence"
+      ]
+    },
+    {
+      "name": "编码",
+      "status": "ok",
+      "detail": [
+        "h264 1920×1080，音轨 有，370.0s"
+      ]
+    },
+    {
+      "name": "时长",
+      "status": "ok",
+      "detail": [
+        "6.2 分钟，类目建议 5–7 分钟"
+      ]
+    },
+    {
+      "name": "音量",
+      "status": "ok",
+      "detail": [
+        "平均 -19.2dB，峰值 -4.5dB（目标平均 -24～-14dB，峰值不削波）"
+      ]
+    },
+    {
+      "name": "字幕同步",
+      "status": "ok",
+      "detail": [
+        "匹配 95/95 句，声音相对字幕中位数 31ms，范围 -0～40ms"
+      ]
+    },
+    {
+      "name": "人工项",
+      "status": "warn",
+      "detail": [
+        "完整试听（读音、英文名念法、语气）只能人工确认，报告不代表已试听",
+        "看 npm run stills 的检查帧：遮挡、高亮位置、表格可读性"
+      ]
+    }
+  ],
+  "video": "out/gpt-6-2-render-20261120T075359/video.mp4"
+}

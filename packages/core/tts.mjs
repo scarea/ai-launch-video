@@ -10,7 +10,12 @@ const only = process.argv.find((a) => a.startsWith("--only="))?.slice(7);
 const dir = episodeDir(id);
 const ep = await readJson(path.join(dir, "episode.json"));
 const brand = await readJson("brand/brand.json");
-const voice = { ...brand.voice, ...(ep.voice ?? {}) };
+let voice = { ...brand.voice, ...(ep.voice ?? {}) };
+if (voice.provider === "minimax" && !process.env.MINIMAX_API_KEY) {
+  if (!brand.voiceFallback) throw new Error("没有 MINIMAX_API_KEY，也没有 brand.voiceFallback");
+  console.log(`没有 MINIMAX_API_KEY，降级为 ${brand.voiceFallback.provider} 免费配音（npm run doctor 查看配置）`);
+  voice = { ...brand.voiceFallback };
+}
 const provider = await import(`../providers/tts/${voice.provider}.mjs`);
 const params = provider.settings(voice);
 

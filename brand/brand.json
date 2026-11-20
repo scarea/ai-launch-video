@@ -7,11 +7,11 @@
   "avatar": {
     "type": "png",
     "poses": {
-      "idle": "brand/host-idle.png",
-      "idleTalk": "brand/host-idleTalk.png",
-      "point": "brand/host-point.png",
-      "pointTalk": "brand/host-pointTalk.png",
-      "think": "brand/host-think.png"
+      "idle": "brand/avatar/host-idle.png",
+      "idleTalk": "brand/avatar/host-idleTalk.png",
+      "point": "brand/avatar/host-point.png",
+      "pointTalk": "brand/avatar/host-pointTalk.png",
+      "think": "brand/avatar/host-think.png"
     }
   },
   "voice": {

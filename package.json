@@ -8,12 +8,18 @@
     "node": ">=22"
   },
   "scripts": {
+    "doctor": "node --env-file-if-exists=.env packages/core/doctor.mjs",
+    "new": "node packages/core/new.mjs",
+    "check-facts": "node packages/core/check-facts.mjs",
     "tts": "node --env-file-if-exists=.env packages/core/tts.mjs",
     "assemble": "node --env-file-if-exists=.env packages/core/assemble.mjs",
     "studio": "remotion studio packages/templates/src/index.ts",
     "stills": "node --env-file-if-exists=.env packages/core/render.mjs --stills",
     "render": "node --env-file-if-exists=.env packages/core/render.mjs",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "qa": "node --env-file-if-exists=.env packages/core/qa.mjs",
+    "locate": ".venv/bin/python -I packages/core/locate.py",
+    "cutout": ".venv/bin/python -I packages/core/cutout.py"
   },
   "dependencies": {
     "@remotion/bundler": "^4.0.545",

@@ -1,7 +1,8 @@
 // episode.json + 配音清单 → public/ep/timeline.json（Remotion 读取）。用法：npm run assemble -- fable-5-2
 import path from "node:path";
 import fs from "node:fs/promises";
-import { episodeDir, readJson, run, sha, writeJson } from "./lib.mjs";
+import { episodeDir, exists, readJson, run, sha, writeJson } from "./lib.mjs";
+import { validateEpisode } from "./schema.mjs";
 
 async function aspectOf(file) {
   const { stdout } = await run("ffprobe", ["-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "csv=p=0", file]);
@@ -15,7 +16,17 @@ const FPS = 30;
 const dir = episodeDir(id);
 const ep = await readJson(path.join(dir, "episode.json"));
 const brand = await readJson("brand/brand.json");
-const { voice, cues: audio } = await readJson(path.join(dir, "audio", "manifest.json"));
+
+// 稿件校验（格式、素材、evidence 引用）
+const facts = await readJson(path.join(dir, "sources", "facts.json")).catch(() => []);
+const { errors, warnings } = await validateEpisode(ep, dir, facts);
+if (warnings.length) console.log("提醒：\n  " + warnings.join("\n  "));
+if (errors.length) throw new Error("episode.json 有错误：\n  " + errors.join("\n  "));
+
+const audioManifest = path.join(dir, "audio", "manifest.json");
+if (!(await exists(audioManifest))) throw new Error(`还没有配音：先运行 npm run tts -- ${id}`);
+const { voice, cues: audio } = await readJson(audioManifest);
+
 const pub = path.resolve("public", "ep");
 await fs.rm(pub, { recursive: true, force: true });
 await fs.mkdir(path.join(pub, "audio"), { recursive: true });
@@ -24,7 +35,10 @@ await fs.mkdir(path.join(pub, "media"), { recursive: true });
 await fs.mkdir(path.resolve("public", "brand"), { recursive: true });
 if (brand.avatar.type === "png")
   for (const f of new Set(Object.values(brand.avatar.poses)))
-    await fs.copyFile(path.resolve("brand", "avatar", path.basename(f)), path.resolve("public", f));
+    {
+      await fs.mkdir(path.dirname(path.resolve("public", f)), { recursive: true });
+      await fs.copyFile(path.resolve(f), path.resolve("public", f));
+    }
 
 const copied = new Map();
 async function media(src) {
@@ -35,14 +49,6 @@ async function media(src) {
   copied.set(src, `ep/media/${name}`);
   return `ep/media/${name}`;
 }
-
-// evidence 引用必须存在于 facts.json
-const factsPath = path.join(dir, "sources", "facts.json");
-const factIds = new Set((await readJson(factsPath).catch(() => [])).map((f) => f.id));
-const unknown = [];
-for (const c of [...ep.intro.cues, ...ep.chapters.flatMap((c) => c.cues), ...ep.outro.cues])
-  for (const e of c.evidence ?? []) if (!factIds.has(e)) unknown.push(`${e}：${c.text}`);
-if (unknown.length) throw new Error("evidence 引用不存在：\n" + unknown.join("\n"));
 
 const LEAD = { intro: 24, chapter: 14, outro: 10 };
 let cursor = 0;
@@ -61,7 +67,6 @@ async function scene(kind, sid, title, accent, cues, defaults = {}) {
     const key = sha(JSON.stringify([voice.provider, voice.params, c.emotion ?? null, c.text]));
     const a = audio[key];
     if (!a) throw new Error(`缺少配音：${c.text}（先跑 npm run tts）`);
-    if ([...c.text].length > 40) problems.push(`字幕过长(${[...c.text].length}字)：${c.text}`);
     if (c.visual) {
       visual = { ...c.visual };
       if (visual.kind === "image" || visual.kind === "video") {
@@ -106,6 +111,7 @@ await scene("outro", "outro", ep.outro.title, ep.outro.accent, ep.outro.cues);
 cursor += 30; // 结尾留白
 
 const timeline = {
+  id,
   fps: FPS,
   width: 1920,
   height: 1080,
